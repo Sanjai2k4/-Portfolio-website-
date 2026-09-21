@@ -1,6 +1,6 @@
-# Shathish Portfolio
+# Sanjai G - Portfolio Website
 
-My Personal Portfolio
+Personal Portfolio website built with React, Tailwind CSS, and Vite.
 
-- To tell about me
-- To show case my skills and projects
+- Showcases skills, projects, certifications, and experience.
+- Responsive and modern UI with dark mode support.
