@@ -27,7 +27,7 @@ const Certifications = ({ onViewCertificate }) => {
   };
 
   return (
-    <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
+    <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24 isolate overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -123,10 +123,10 @@ const Certifications = ({ onViewCertificate }) => {
                     e.stopPropagation();
                     onViewCertificate(cert);
                   }}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 shadow-md transition-all duration-200 cursor-pointer hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-[var(--accent-primary)] bg-[var(--accent-primary)]/10 hover:bg-[var(--accent-primary)]/20 border border-[var(--accent-primary)]/30 hover:border-[var(--accent-primary)]/60 shadow-sm transition-all duration-200 cursor-pointer hover:-translate-y-0.5"
                   aria-label={`View Certificate for ${cert.title}`}
                 >
-                  <Eye className="w-3.5 h-3.5" />
+                  <Eye className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
                   <span>View Certificate</span>
                 </button>
 

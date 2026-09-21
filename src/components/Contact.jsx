@@ -143,9 +143,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24 isolate overflow-hidden w-full max-w-full">
       {/* Ambient background glow */}
-      <div className="absolute top-1/3 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-0 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-blue-600/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

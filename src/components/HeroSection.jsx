@@ -46,12 +46,12 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-28"
+      className="relative min-h-[92vh] flex items-center justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-28 isolate w-full max-w-full"
     >
       {/* Dynamic ambient background glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-tr from-cyan-600/15 via-indigo-600/20 to-purple-600/15 rounded-full blur-[130px] pointer-events-none -z-10 animate-pulse-glow" />
-      <div className="absolute top-1/3 left-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-[500px] h-72 sm:h-[500px] max-w-full bg-gradient-to-tr from-cyan-600/15 via-indigo-600/20 to-purple-600/15 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none -z-10 animate-pulse-glow" />
+      <div className="absolute top-1/3 left-0 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-cyan-500/10 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-0 sm:right-10 w-48 sm:w-96 h-48 sm:h-96 bg-purple-600/15 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left Column: Text & CTAs */}

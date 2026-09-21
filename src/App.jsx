@@ -52,7 +52,7 @@ const AppContent = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-body)] text-[var(--text-main)] relative antialiased transition-colors duration-300">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[var(--bg-body)] text-[var(--text-main)] relative antialiased transition-colors duration-300">
       {/* Dynamic ambient dot pattern adaptable to theme */}
       <div
         className="fixed inset-0 pointer-events-none -z-20 opacity-70"
@@ -64,7 +64,7 @@ const AppContent = () => {
 
       <Navbar onOpenResume={() => setIsResumeModalOpen(true)} />
 
-      <main>
+      <main className="w-full max-w-full overflow-x-hidden">
         <HeroSection />
         <About />
         <Skills />

@@ -34,7 +34,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-5xl h-[92vh] flex flex-col rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl"
+        className="relative w-full max-w-5xl max-w-[calc(100vw-1.5rem)] h-[92vh] flex flex-col rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl"
         style={{ background: "var(--modal-bg, rgba(3, 7, 18, 0.96))" }}
       >
         {/* Modal Top Bar */}

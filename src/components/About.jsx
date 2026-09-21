@@ -14,9 +14,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24 isolate overflow-hidden w-full max-w-full">
       {/* Background Accent */}
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-0 w-48 sm:w-72 h-48 sm:h-72 bg-blue-600/10 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

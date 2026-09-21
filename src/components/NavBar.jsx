@@ -108,7 +108,7 @@ const Navbar = ({ onOpenResume }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full max-w-full overflow-x-clip z-40 transition-all duration-300 ${
         scrolled
           ? "bg-[var(--bg-nav)] backdrop-blur-2xl border-b border-[var(--border-subtle)] shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-3.5"
           : "bg-[var(--bg-nav)]/60 backdrop-blur-xl border-b border-[var(--border-subtle)]/40 py-4 sm:py-5 shadow-sm"

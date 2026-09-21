@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-[var(--border-subtle)] pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative bg-[var(--bg-body)]">
+    <footer className="border-t border-[var(--border-subtle)] pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative bg-[var(--bg-body)] w-full max-w-full overflow-hidden isolate">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-[var(--border-subtle)]">
           {/* Brand Info */}

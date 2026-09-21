@@ -52,8 +52,8 @@ const CertificateModal = ({ certificate, isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
         className={`relative w-full flex flex-col rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl transition-all duration-300 animate-in zoom-in-95 ${
           isFullscreen
-            ? "max-w-[99vw] h-[98vh]"
-            : "max-w-4xl h-[90vh] sm:h-[88vh]"
+            ? "max-w-[calc(100vw-1rem)] h-[98vh]"
+            : "max-w-4xl max-w-[calc(100vw-1rem)] h-[90vh] sm:h-[88vh]"
         }`}
         style={{ background: "var(--modal-bg, rgba(3, 7, 18, 0.97))" }}
       >
@@ -167,7 +167,7 @@ const CertificateModal = ({ certificate, isOpen, onClose }) => {
             <a
               href={certificate.fileUrl}
               download={downloadFileName}
-              className="glass-btn flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:from-purple-500 hover:via-indigo-500 hover:to-cyan-500 shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:shadow-[0_0_30px_rgba(168,85,247,0.55)] transition-all duration-300 cursor-pointer"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-[var(--accent-primary)] bg-[var(--accent-primary)]/10 hover:bg-[var(--accent-primary)]/20 border border-[var(--accent-primary)]/30 hover:border-[var(--accent-primary)]/60 shadow-sm transition-all duration-300 cursor-pointer"
               title={`Download ${downloadFileName}`}
             >
               <Download className="w-4 h-4" />

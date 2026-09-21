@@ -18,7 +18,7 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24 bg-transparent">
+    <section id="education" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24 bg-transparent isolate overflow-hidden w-full max-w-full">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
