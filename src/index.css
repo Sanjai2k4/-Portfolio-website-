@@ -101,6 +101,11 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--bg-body);
@@ -124,6 +129,25 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-primary);
   }
+}
+
+/* Colorless / Transparent Cards for Experience, Education, and Certifications */
+.colorless-card {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.colorless-card:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -6px var(--glow-color);
 }
 
 /* Refined Glassmorphism theme-adapted cards & interactive elements */

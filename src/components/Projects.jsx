@@ -18,7 +18,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll">
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
       {/* Glow Effects */}
       <div className="absolute top-10 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />

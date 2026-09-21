@@ -9,7 +9,6 @@ import {
   Check,
   Eye,
 } from "lucide-react";
-import { portfolioData } from "../data/portfolioData";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = ({ onOpenResume }) => {
@@ -79,18 +78,28 @@ const Navbar = ({ onOpenResume }) => {
         "certifications",
         "contact",
       ];
-      const current = sections.find((section) => {
+      const navOffset = 180;
+      let active = "";
+      for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 160 && rect.bottom >= 160;
+          if (rect.top <= navOffset && rect.bottom > 60) {
+            active = section;
+          }
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
+      }
+      // If at the very bottom of the page, highlight contact
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        active = "contact";
+      }
+      if (active) setActiveSection(active);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -276,7 +285,7 @@ const Navbar = ({ onOpenResume }) => {
           <div className="flex xl:hidden items-center gap-2">
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 rounded-xl sm:hidden cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-[var(--accent-primary)] bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--border-hover)] rounded-xl sm:hidden cursor-pointer shadow-sm transition-all"
               aria-label="Quick View Resume"
             >
               <FileText className="w-3.5 h-3.5" />
@@ -294,63 +303,70 @@ const Navbar = ({ onOpenResume }) => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with smooth scrolling so content is never cut off */}
       {isOpen && (
-        <div className="xl:hidden px-4 pt-3 pb-6 bg-[var(--modal-bg)] backdrop-blur-2xl border-b border-[var(--border-subtle)] animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="xl:hidden px-4 pt-3 pb-6 bg-[var(--modal-bg)] backdrop-blur-2xl border-b border-[var(--border-subtle)] max-h-[calc(100vh-4.5rem)] overflow-y-auto overscroll-contain animate-in fade-in slide-in-from-top-4 duration-300 shadow-2xl">
           <div className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-2.5 rounded-xl text-base font-semibold text-slate-200 hover:text-cyan-400 hover:bg-white/5 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`px-4 py-2.5 rounded-xl text-base font-semibold transition-colors ${
+                    isActive
+                      ? "text-[var(--accent-primary)] bg-[var(--bg-chip)] border border-[var(--border-subtle)]"
+                      : "text-slate-200 hover:text-[var(--accent-primary)] hover:bg-white/5"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
 
-            {/* Mobile Theme Selector */}
+            {/* Mobile Theme Selector - Only fills around text, doesn't expand */}
             <div className="pt-3 border-t border-white/10">
-              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold px-4 block mb-2">
+              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold px-2 block mb-2.5">
                 Themes
               </span>
-              <div className="grid grid-cols-2 gap-2 px-2">
+              <div className="flex flex-wrap gap-2 px-1">
                 {themes.map((t) => (
                   <button
                     key={t.id}
                     onClick={() => {
                       setTheme(t.id);
                     }}
-                    className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-medium border transition-colors ${
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border transition-all cursor-pointer w-auto shrink-0 ${
                       theme === t.id
-                        ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
-                        : "bg-slate-900/70 text-slate-300 border-white/10"
+                        ? "bg-[var(--accent-primary)] text-white border-[var(--accent-primary)] shadow-sm font-semibold"
+                        : "bg-[var(--bg-chip)] text-[var(--text-sub)] border-[var(--border-subtle)] hover:border-[var(--border-hover)] hover:text-[var(--text-main)]"
                     }`}
                   >
                     <span
-                      className="w-2.5 h-2.5 rounded-full"
+                      className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/20"
                       style={{ backgroundColor: t.previewColor }}
                     />
-                    <span className="truncate">{t.shortName}</span>
+                    <span className="whitespace-nowrap">{t.shortName}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Mobile Actions: View Resume & Download */}
+            {/* Mobile Actions: View Resume & Download - Only fills around text, doesn't expand */}
             <div className="pt-3 border-t border-white/10">
-              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold px-4 block mb-2">
+              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold px-2 block mb-2.5">
                 Resume Options
               </span>
-              <div className="space-y-2">
+              <div className="flex flex-wrap items-center gap-2.5 px-1">
                 <button
                   onClick={() => {
                     setIsOpen(false);
                     onOpenResume();
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-cyan-300 rounded-xl bg-cyan-950/60 border border-cyan-500/40 shadow-sm cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-[var(--text-main)] rounded-xl bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] shadow-sm transition-all cursor-pointer w-auto shrink-0"
                 >
-                  <Eye className="w-4 h-4" />
+                  <Eye className="w-4 h-4 text-[var(--accent-primary)]" />
                   <span>View Resume</span>
                 </button>
 
@@ -358,7 +374,7 @@ const Navbar = ({ onOpenResume }) => {
                   href="/resume.pdf"
                   download="Sanjai_G_Resume.pdf"
                   onClick={() => setIsOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_0_20px_rgba(6,182,212,0.3)] cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-sm transition-all cursor-pointer w-auto shrink-0"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Resume</span>

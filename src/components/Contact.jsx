@@ -124,7 +124,7 @@ const Contact = () => {
           `Your email client has been opened with your pre-filled inquiry. If it didn't open automatically, you can send directly to ${student.email}.`
         );
       }
-    } catch (err) {
+    } catch {
       // Graceful fallback to mailto
       const mailtoUrl = `mailto:${student.email}?subject=${encodeURIComponent(
         `[Portfolio Contact] ${formData.subject}`
@@ -143,7 +143,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
       {/* Ambient background glow */}
       <div className="absolute top-1/3 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 

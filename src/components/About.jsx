@@ -14,7 +14,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none -z-10" />
 
@@ -54,28 +54,28 @@ const About = () => {
           {/* Left Column: Interactive Story Card */}
           <div className="lg:col-span-8 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 shadow-xl">
             {/* View Mode Switcher */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-cyan-400" />
                 <h3 className="text-lg sm:text-xl font-bold text-white">Professional Profile</h3>
               </div>
-              <div className="flex items-center p-1 bg-slate-900/80 rounded-xl border border-white/10">
+              <div className="inline-flex items-center p-1 bg-[var(--bg-chip)] rounded-xl border border-[var(--border-subtle)] self-start sm:self-auto">
                 <button
                   onClick={() => setActiveTab("summary")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "summary"
-                      ? "bg-cyan-500 text-slate-950 shadow-md"
-                      : "text-slate-400 hover:text-white"
+                      ? "bg-[var(--accent-primary)] text-white shadow-md font-bold"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-main)]"
                   }`}
                 >
                   Quick Summary
                 </button>
                 <button
                   onClick={() => setActiveTab("detailed")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "detailed"
-                      ? "bg-cyan-500 text-slate-950 shadow-md"
-                      : "text-slate-400 hover:text-white"
+                      ? "bg-[var(--accent-primary)] text-white shadow-md font-bold"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-main)]"
                   }`}
                 >
                   Detailed Bio
@@ -85,38 +85,38 @@ const About = () => {
 
             {/* Tab Contents */}
             {activeTab === "summary" ? (
-              <div className="space-y-4 text-slate-300 text-base leading-relaxed animate-in fade-in duration-300">
-                <p className="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/20 text-cyan-100 font-medium">
+              <div className="space-y-4 text-[var(--text-main)] text-base leading-relaxed animate-in fade-in duration-300">
+                <p className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-chip)] border border-[var(--border-subtle)] text-[var(--text-main)] font-medium leading-relaxed shadow-sm">
                   {about.short}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                  <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div className="flex items-center gap-2.5 text-sm text-[var(--text-sub)]">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>Java Object-Oriented Architecture</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div className="flex items-center gap-2.5 text-sm text-[var(--text-sub)]">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>Responsive Interfaces with React.js</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div className="flex items-center gap-2.5 text-sm text-[var(--text-sub)]">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>Spring Boot, Node.js & REST APIs</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div className="flex items-center gap-2.5 text-sm text-[var(--text-sub)]">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>Relational (MySQL) & Document (MongoDB) DBs</span>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="space-y-4 text-slate-300 text-base leading-relaxed animate-in fade-in duration-300">
+              <div className="space-y-4 text-[var(--text-sub)] text-base leading-relaxed animate-in fade-in duration-300">
                 <p>
                   I am a passionate software developer with strong foundational expertise in <span className="text-white font-semibold">Java, Spring Boot, React.js, and modern full-stack web engineering</span>. My focus centers on writing clean, readable code and translating functional specifications into stable, user-friendly digital solutions.
                 </p>
                 <p>
                   Through developer internships and academic projects, I have developed RESTful APIs, implemented database schemas with MySQL and MongoDB, and crafted responsive user interfaces using React.js and modern CSS. I value disciplined engineering practices, methodical problem solving, and effective team communication.
                 </p>
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-slate-300">
+                <div className="p-4 rounded-xl bg-[var(--bg-chip)] border border-[var(--border-subtle)] text-[var(--text-sub)]">
                   <strong className="text-white">Career Objective:</strong> As a 2026 computer science graduate, I aim to apply my technical grounding in Java full-stack technologies to real-world engineering challenges, delivering value through maintainable, performant software.
                 </div>
               </div>
@@ -170,12 +170,12 @@ const About = () => {
             </div>
 
             {/* What I Bring Card */}
-            <div className="glass-panel p-6 rounded-3xl border border-indigo-500/20 bg-gradient-to-br from-indigo-950/40 via-slate-900/60 to-slate-900/40">
+            <div className="glass-panel p-6 rounded-3xl border border-[var(--border-subtle)]">
               <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Award className="w-4 h-4 text-indigo-400" />
+                <Award className="w-4 h-4 text-[var(--accent-primary)]" />
                 <span>Core Competencies</span>
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[var(--text-sub)] leading-relaxed">
                 Strong fundamentals in Core Java, Spring Boot, OOPs, React.js frontend architecture, REST API design, swift adaptability to new technologies, and disciplined problem-solving.
               </p>
             </div>

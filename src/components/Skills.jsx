@@ -67,7 +67,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll">
+    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
       {/* Background ambient glows */}
       <div className="absolute top-1/3 right-0 w-80 h-80 bg-purple-600/10 rounded-full blur-[110px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-cyan-600/10 rounded-full blur-[110px] pointer-events-none -z-10" />

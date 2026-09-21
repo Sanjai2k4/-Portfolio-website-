@@ -27,10 +27,7 @@ const Certifications = ({ onViewCertificate }) => {
   };
 
   return (
-    <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[130px] pointer-events-none -z-10" />
-
+    <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -46,33 +43,30 @@ const Certifications = ({ onViewCertificate }) => {
           </p>
         </div>
 
-        {/* Certifications Grid */}
+        {/* Certifications Grid - Colorless / Transparent Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
           {certifications.map((cert) => (
             <div
               key={cert.id}
               onClick={() => onViewCertificate(cert)}
-              className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-purple-400/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-xl hover:-translate-y-1.5 cursor-pointer"
+              className="colorless-card p-6 rounded-3xl border border-[var(--border-subtle)] hover:border-[var(--border-hover)] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group cursor-pointer hover:-translate-y-1"
             >
-              {/* Subtle top accent gradient */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400 opacity-60 group-hover:opacity-100 transition-opacity" />
-
               <div>
                 {/* Header with Icon and Date badge */}
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="p-3 rounded-2xl bg-slate-900/90 border border-white/10 shadow-md group-hover:scale-110 group-hover:rotate-3 group-hover:border-purple-400/50 transition-all duration-300">
+                  <div className="p-3 rounded-2xl bg-transparent border border-[var(--border-subtle)] shadow-sm group-hover:scale-105 group-hover:border-[var(--accent-primary)] transition-all duration-300">
                     {getCertIcon(cert.iconType)}
                   </div>
 
                   <div className="flex flex-col items-end gap-1">
                     {cert.date && (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 text-xs font-semibold text-slate-300 border border-white/10">
-                        <Calendar className="w-3 h-3 text-cyan-400" />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-transparent text-xs font-semibold text-[var(--text-sub)] border border-[var(--border-subtle)]">
+                        <Calendar className="w-3 h-3 text-[var(--accent-primary)]" />
                         <span>{cert.date}</span>
                       </span>
                     )}
                     {cert.certificateId && (
-                      <span className="text-[10px] font-mono text-purple-300/80 bg-purple-950/40 px-2 py-0.5 rounded border border-purple-500/20">
+                      <span className="text-[10px] font-mono text-[var(--accent-primary)] bg-transparent px-2 py-0.5 rounded border border-[var(--border-subtle)]">
                         ID: {cert.certificateId}
                       </span>
                     )}
@@ -81,14 +75,14 @@ const Certifications = ({ onViewCertificate }) => {
 
                 {/* Organization and Title */}
                 <div className="mb-3">
-                  <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] mb-1 block">
                     {cert.organization}
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-300 transition-colors leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[var(--accent-primary)] transition-colors leading-snug">
                     {cert.title}
                   </h3>
                   {cert.subTitle && (
-                    <p className="text-xs text-slate-300 font-medium mt-0.5">
+                    <p className="text-xs text-[var(--text-sub)] font-medium mt-0.5">
                       {cert.subTitle}
                     </p>
                   )}
@@ -96,7 +90,7 @@ const Certifications = ({ onViewCertificate }) => {
 
                 {/* Short Description */}
                 {cert.description && (
-                  <p className="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-2">
+                  <p className="text-xs text-[var(--text-sub)] leading-relaxed mb-4 line-clamp-2">
                     {cert.description}
                   </p>
                 )}
@@ -111,7 +105,7 @@ const Certifications = ({ onViewCertificate }) => {
                       {cert.skills.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-2.5 py-0.5 rounded-lg text-xs font-medium bg-slate-900/80 text-slate-300 border border-white/5"
+                          className="px-2.5 py-0.5 rounded-lg text-xs font-medium bg-transparent text-[var(--text-sub)] border border-[var(--border-subtle)]"
                         >
                           {skill}
                         </span>
@@ -122,7 +116,7 @@ const Certifications = ({ onViewCertificate }) => {
               </div>
 
               {/* Action: "View Certificate" Button & Category Tag */}
-              <div className="pt-3.5 border-t border-white/10 flex items-center justify-between gap-3 mt-auto">
+              <div className="pt-3.5 border-t border-[var(--border-subtle)] flex items-center justify-between gap-3 mt-auto">
                 <button
                   type="button"
                   onClick={(e) => {
@@ -136,7 +130,7 @@ const Certifications = ({ onViewCertificate }) => {
                   <span>View Certificate</span>
                 </button>
 
-                <div className="flex items-center gap-1 text-xs text-emerald-400 font-medium">
+                <div className="flex items-center gap-1 text-xs text-emerald-500 font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>{cert.category}</span>
                 </div>

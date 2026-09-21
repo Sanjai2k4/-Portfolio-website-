@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import { Download, X, ExternalLink, FileText, CheckCircle2, AlertCircle } from "lucide-react";
+import { useEffect } from "react";
+import { Download, X, ExternalLink, FileText } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 const ResumeModal = ({ isOpen, onClose }) => {
   const { student } = portfolioData;
-  const [isPdfLoaded, setIsPdfLoaded] = useState(true);
 
   // Close on Escape key press
   useEffect(() => {
@@ -102,7 +101,6 @@ const ResumeModal = ({ isOpen, onClose }) => {
               data="/resume.pdf#toolbar=1&navpanes=0&scrollbar=1"
               type="application/pdf"
               className="w-full h-full border-none"
-              onError={() => setIsPdfLoaded(false)}
             >
               {/* Fallback for devices without inline PDF support */}
               <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-slate-900/60">

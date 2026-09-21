@@ -18,10 +18,7 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll bg-transparent">
-      {/* Subtle ambient light - transparent section */}
-      <div className="absolute top-1/2 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[130px] pointer-events-none -z-10" />
-
+    <section id="education" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative reveal-on-scroll scroll-mt-24 bg-transparent">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -37,10 +34,10 @@ const Education = () => {
           </p>
         </div>
 
-        {/* Compact Education Timeline Cards - No heavy boxed background container */}
+        {/* Compact Education Timeline Cards - Completely Colorless / Transparent */}
         <div className="space-y-5 relative">
           {/* Vertical Connecting Line */}
-          <div className="hidden sm:block absolute left-5 top-5 bottom-5 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-indigo-600/30" />
+          <div className="hidden sm:block absolute left-5 top-5 bottom-5 w-0.5 bg-gradient-to-b from-blue-500/40 via-cyan-500/30 to-transparent" />
 
           {education.map((item) => (
             <div
@@ -48,53 +45,42 @@ const Education = () => {
               className="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-5 group"
             >
               {/* Timeline Pin Node */}
-              <div className="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-slate-900/90 border border-white/15 shadow-md shrink-0 z-10 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.35)] transition-all duration-300">
+              <div className="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-transparent border border-[var(--border-subtle)] shadow-sm shrink-0 z-10 group-hover:border-[var(--accent-primary)] group-hover:shadow-[0_0_15px_var(--glow-color)] transition-all duration-300">
                 {getEducationIcon(item.id)}
               </div>
 
-              {/* Compact Card Container - Lightweight Glassmorphic */}
-              <div className="w-full glass-card-compact p-5 rounded-2xl border border-white/10 hover:border-cyan-500/40 transition-all duration-300 relative overflow-hidden">
-                {/* Top Accent Gradient Border */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-0.5 ${
-                    item.id === "be-cse"
-                      ? "bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"
-                      : item.id === "hsc"
-                      ? "bg-gradient-to-r from-blue-500 to-teal-400"
-                      : "bg-gradient-to-r from-indigo-500 to-purple-500"
-                  }`}
-                />
-
+              {/* Colorless Card Container */}
+              <div className="w-full colorless-card p-5 sm:p-6 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--border-hover)] transition-all duration-300 relative overflow-hidden">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     {/* Level Pill & Period */}
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-semibold">
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <span className="px-2.5 py-0.5 rounded-full bg-transparent text-[var(--accent-primary)] border border-[var(--accent-primary)]/40 text-xs font-semibold">
                         {item.level}
                       </span>
                       <span className="inline-flex items-center gap-1 text-xs text-slate-400">
-                        <Calendar className="w-3 h-3 text-cyan-400" />
+                        <Calendar className="w-3 h-3 text-[var(--accent-primary)]" />
                         <span>{item.period}</span>
                       </span>
                     </div>
 
                     {/* Degree / Certificate Name */}
-                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[var(--accent-primary)] transition-colors">
                       {item.degree}
                     </h3>
 
                     {/* Institute Name & Location */}
-                    <p className="text-xs sm:text-sm font-medium text-slate-300 mt-0.5">
+                    <p className="text-xs sm:text-sm font-medium text-[var(--text-sub)] mt-0.5">
                       {item.institute}
                     </p>
                     <div className="flex items-center gap-1.5 text-xs text-slate-400 mt-0.5">
-                      <MapPin className="w-3 h-3 text-cyan-400" />
+                      <MapPin className="w-3 h-3 text-[var(--accent-primary)]" />
                       <span>{item.location}</span>
                     </div>
                   </div>
 
                   {/* Compact Score Badge */}
-                  <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center px-3.5 py-2 rounded-xl bg-slate-900/90 border border-white/10 shrink-0">
+                  <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center px-3.5 py-2 rounded-xl bg-transparent border border-[var(--border-subtle)] shrink-0">
                     <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-0.5 flex items-center gap-1">
                       <Award className="w-3 h-3 text-amber-400" />
                       <span>{item.scoreType}</span>

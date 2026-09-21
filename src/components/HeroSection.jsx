@@ -46,7 +46,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-[92vh] flex items-center justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-28"
     >
       {/* Dynamic ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-tr from-cyan-600/15 via-indigo-600/20 to-purple-600/15 rounded-full blur-[130px] pointer-events-none -z-10 animate-pulse-glow" />
@@ -88,10 +88,10 @@ const HeroSection = () => {
             <span className="w-0.5 h-6 sm:h-7 bg-cyan-400 ml-1 animate-pulse" />
           </div>
 
-          {/* Primary Designation Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-indigo-950/50 border border-indigo-500/30 text-indigo-300 text-sm font-semibold tracking-wide mb-6">
-            <Code2 className="w-4 h-4 text-indigo-400" />
-            <span>{student.title}</span>
+          {/* Primary Designation Pill - Theme-adaptive across all modes */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--border-hover)] text-sm font-semibold tracking-wide mb-6 shadow-sm transition-all backdrop-blur-md">
+            <Code2 className="w-4 h-4 text-[var(--accent-primary)]" />
+            <span className="text-[var(--text-main)]">{student.title}</span>
           </div>
 
           {/* Concise, Professional Description */}
@@ -176,7 +176,7 @@ const HeroSection = () => {
 
         {/* Right Column: LARGE CIRCULAR Profile Picture with Premium Animated Glow BEHIND */}
         <div className="lg:col-span-5 flex flex-col justify-center items-center relative">
-          <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[400px] xl:h-[400px] aspect-square group cursor-pointer">
+          <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[400px] xl:h-[400px] aspect-square group cursor-pointer">
             {/* === ANIMATED MULTI-COLOR GLOW EFFECT STRICTLY POSITIONED BEHIND THE CIRCULAR IMAGE === */}
 
             {/* 1. Flowing Soft Ambient Gradient Blob behind circle (Cyan, Blue, Purple) */}
