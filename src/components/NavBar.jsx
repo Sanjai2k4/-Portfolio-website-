@@ -141,11 +141,11 @@ const Navbar = ({ onOpenResume }) => {
 
           {/* Right Action Elements: Single Theme Switcher + Unified Resume Dropdown */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Single Theme Toggle Button - Explicitly mentioning Dark or Light */}
+            {/* Single Theme Toggle Button - Explicitly mentioning Dark or Light (hidden when navbar shrinks) */}
             <button
               type="button"
               onClick={toggleTheme}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--border-hover)] text-[var(--text-main)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_var(--glow-color)] cursor-pointer text-xs font-semibold"
+              className="hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--border-hover)] text-[var(--text-main)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_var(--glow-color)] cursor-pointer text-xs font-semibold"
               title={theme === "dark" ? "Switch to Light theme" : "Switch to Dark theme"}
               aria-label={`Current theme: ${theme === "dark" ? "Dark" : "Light"}`}
             >
@@ -239,27 +239,6 @@ const Navbar = ({ onOpenResume }) => {
 
           {/* Mobile Navigation Toggle + Quick Buttons */}
           <div className="flex xl:hidden items-center gap-2">
-            {/* Quick 1-tap Theme Switcher - Mentioning Dark or Light */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-[var(--text-main)] bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--border-hover)] transition-all cursor-pointer shadow-sm text-xs font-semibold"
-              title={theme === "dark" ? "Switch to Light theme" : "Switch to Dark theme"}
-              aria-label={`Current theme: ${theme === "dark" ? "Dark" : "Light"}`}
-            >
-              {theme === "dark" ? (
-                <>
-                  <Moon className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Dark</span>
-                </>
-              ) : (
-                <>
-                  <Sun className="w-3.5 h-3.5 text-amber-500" />
-                  <span>Light</span>
-                </>
-              )}
-            </button>
-
             <button
               onClick={onOpenResume}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-[var(--accent-primary)] bg-[var(--bg-chip)] border border-[var(--border-subtle)] hover:border-[var(--border-hover)] rounded-xl sm:hidden cursor-pointer shadow-sm transition-all"
