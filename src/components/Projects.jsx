@@ -8,6 +8,7 @@ import {
   Code2,
   ShoppingBag,
   ShieldAlert,
+  Utensils,
   ArrowRight,
   Sparkles,
 } from "lucide-react";
@@ -49,7 +50,9 @@ const Projects = () => {
                 {/* Header with icon & category badge */}
                 <div className="flex items-center justify-between gap-3 mb-4">
                   <div className="p-3 rounded-2xl bg-slate-900 border border-white/10 text-cyan-400 shadow-sm group-hover:scale-105 group-hover:border-cyan-500/40 transition-all">
-                    {project.id === "ecommerce-web" ? (
+                    {project.id.includes("food") || project.id.includes("virundhu") ? (
+                      <Utensils className="w-5 h-5 text-amber-400" />
+                    ) : project.id === "ecommerce-web" ? (
                       <ShoppingBag className="w-5 h-5 text-cyan-400" />
                     ) : (
                       <ShieldAlert className="w-5 h-5 text-indigo-400" />

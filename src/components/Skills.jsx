@@ -44,13 +44,16 @@ const Skills = () => {
   const getSkillIcon = (skill) => {
     switch (skill.toLowerCase()) {
       case "java":
+      case "core java":
       case "spring boot":
       case "hibernate":
         return <FileCode className="w-3 h-3 text-amber-400" />;
       case "javascript":
       case "python":
         return <Binary className="w-3 h-3 text-yellow-400" />;
+      case "html":
       case "html5":
+      case "css":
       case "css3":
       case "react.js":
         return <Code2 className="w-3 h-3 text-cyan-400" />;
